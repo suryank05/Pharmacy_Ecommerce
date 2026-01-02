@@ -1,0 +1,38 @@
+.pharmacy-card {
+    width: 300px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.pharmacy-card:hover {
+    transform: translateY(-4px);
+}
+
+.pharmacy-name {
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.pharmacy-address,
+.pharmacy-email {
+    margin: 6px 0;
+    color: #555;
+}
+
+.view-btn {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    background-color: #27ae60;
+}

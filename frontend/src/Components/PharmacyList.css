@@ -1,0 +1,243 @@
+.pharmacies-page {
+  min-height: 100vh;
+  background: #141414;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.pharmacies-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #141414, #1a1a1a, #0f0f0f, #262626);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -1;
+}
+
+.pharmacies-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pharmacies-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff, #e50914);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-btn {
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
+}
+
+.pharmacies-header button {
+  position: relative;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.pharmacies-header button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.pharmacies-header button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.6);
+}
+
+.pharmacies-header button:hover::before {
+  left: 100%;
+}
+
+/* Netflix-Style Grid */
+.pharmacies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pharmacies-list h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Netflix Card Style */
+.pharmacy-card {
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  cursor: pointer;
+}
+
+.pharmacy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pharmacy-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+  border-color: rgba(229, 9, 20, 0.5);
+}
+
+.pharmacy-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  height: 120px;
+  background: linear-gradient(135deg, #ffffff, #265885);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '💊';
+  font-size: 3rem;
+  opacity: 0.9;
+  position: absolute;
+}
+
+.card-content {
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.pharmacy-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pharmacy-address,
+.pharmacy-email {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.view-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #2b88a7, #ffffff);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.view-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
+}
+
+.view-btn:hover::before {
+  left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pharmacies-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .pharmacies-header h1 {
+    font-size: 2rem;
+  }
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
